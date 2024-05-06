@@ -115,7 +115,7 @@
 
         const option = {
           tooltip: {
-            show: true,
+            show: false,
             formatter: function(e) {
               var name = e.name ? e.name : '获取中';
               var value = e.value ? e.value : '暂无数据'
@@ -229,12 +229,25 @@
         myChart.setOption(option);
         myChart.on('select',{ seriesIndex: 1 },(e)=>{
           console.log(e)
+          const tooltip = {
+            tooltip: {
+              show: true,
+              
+            },
+          }
+          myChart.setOption(Object.assign(option,tooltip));
           // 取消高亮
           setTimeout(()=>{
             myChart.dispatchAction({
                 type: 'unselect',
                 dataIndex: e.dataIndexInside
             });
+            myChart.setOption(Object.assign(option,{
+              tooltip: {
+                show: false,
+                
+              }
+            }));
           },1000)
         })
       }
