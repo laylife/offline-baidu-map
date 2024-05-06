@@ -229,6 +229,13 @@
         myChart.setOption(option);
         myChart.on('select',{ seriesIndex: 1 },(e)=>{
           console.log(e)
+          // 取消高亮
+          setTimeout(()=>{
+            myChart.dispatchAction({
+                type: 'unselect',
+                dataIndex: e.dataIndexInside
+            });
+          },1000)
         })
       }
     }
