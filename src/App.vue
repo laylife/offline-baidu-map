@@ -76,7 +76,11 @@
           value: this.randomData()
         }, {
           name: '常德市',
-          value: this.randomData()
+          value: this.randomData(),
+          label:{
+            offset:[20,0]
+          }
+          
         }, {
           name: '张家界市',
           value: this.randomData()
@@ -88,12 +92,21 @@
           value: this.randomData()
         }, {
           name: '永州市',
-          value: this.randomData()
+          value: this.randomData(),
+          label:{
+            offset:[10,0]
+          }
         }, {
           name: '怀化市',
           value: this.randomData()
         }, {
           name: '娄底市',
+          value: this.randomData()
+        },{
+          name: '岳阳市',
+          value: this.randomData()
+        },{
+          name: '邵阳市',
           value: this.randomData()
         }, {
           name: '湘西土家族苗族自治州',
@@ -102,34 +115,66 @@
 
         const option = {
           tooltip: {
+            show: true,
             formatter: function(e) {
               var name = e.name ? e.name : '获取中';
               var value = e.value ? e.value : '暂无数据'
               return name + "：" + value;
             }
           },
-          visualMap: {
-            show: false,
-            min: 0,
-            max: 100,
-            inRange: {
-              color: ['#0388FF']
-            }
+          // visualMap: {
+          //   show: false,
+          //   min: 0,
+          //   max: 100,
+          //   inRange: {
+          //     color: ['#0388FF']
+          //   }
+          // },
+          emphasis:{
+            disabled: false,
+            label: {
+              color: '#FFFFFF',
+            },
+            itemStyle: {
+              borderWidth: 2,
+              borderColor: '#36b4bf',
+              areaColor: '#00EFFF',
+              color: '#00EFFF',
+            },                
           },
           geo: {
             map: '湖南',
             roam: false,
             zoom: 1.2,
             aspectScale: 0.9,
-            label: {
-              emphasis: {
-                show: false
-              }
-            },
             itemStyle: {
-              borderColor: 'transparent',
-              areaColor: '#0388FF',
-              color: '#0388FF'
+              borderColor: '#36b4bf',
+              areaColor: '#005568',
+              color: '#005568'
+            },
+            emphasis:{
+              disabled: false,
+              label: {
+                color: '#FFFFFF',
+              },
+              itemStyle: {
+                borderWidth: 2,
+                borderColor: '#36b4bf',
+                areaColor: '#00EFFF',
+                color: '#00EFFF',
+              },                
+            },
+            select:{
+              disabled: false,
+              label: {
+                color: '#FFFFFF',
+              },
+              itemStyle: {
+                borderWidth: 2,
+                borderColor: '#36b4bf',
+                areaColor: '#00EFFF',
+                color: '#00EFFF',
+              },        
             }
           },
           series: [{
@@ -137,31 +182,54 @@
             map: '湖南',
             zoom: 1.2,
             aspectScale: 0.9,
+            
             label: {
               show: true,
-              color: '#fff',
+              color: '#00EFFF',
+              position: ['50%', '50%'],
+             overflow: 'break',
+             width: 80
               
             },
             itemStyle: {
               borderWidth: 2,
-              borderColor: '#05B8F8',
-              areaColor: '#0388FF',
-              color: '#0388FF',
-              emphasis: {
-                borderColor: '#5EBADB',
-                label: {
-                  color: '#fff'
-                },
-                areaColor: '#B4917F'
-              }
+              borderColor: '#36b4bf',
+              areaColor: '#005568',
+              color: '#005568',
+            },
+            select:{
+              disabled: false,
+              label: {
+                color: '#FFFFFF',
+              },
+              itemStyle: {
+                borderWidth: 2,
+                borderColor: '#36b4bf',
+                areaColor: '#00EFFF',
+                color: '#00EFFF',
+              },        
+            },
+            emphasis:{
+              disabled: false,
+              label: {
+                color: '#FFFFFF',
+              },
+              itemStyle: {
+                borderWidth: 2,
+                borderColor: '#36b4bf',
+                areaColor: '#00EFFF',
+                color: '#00EFFF',
+              },                
             },
             data: data
           }]
 
         };
-
+        
         myChart.setOption(option);
-
+        myChart.on('select',{ seriesIndex: 1 },(e)=>{
+          console.log(e)
+        })
       }
     }
   }
