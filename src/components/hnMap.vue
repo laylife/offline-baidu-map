@@ -313,6 +313,7 @@
       // 进入百度地图
       toBaiDuMap(){
         alert('baidu!');
+        this.closeAlert()
       }
     }
     
@@ -336,6 +337,9 @@
     color: #00FFDB;
     margin-left: 60px;
     margin-top: 32px;
+  }
+  .echarts-tooltip-dark .row .item{
+    width: 50%;
   }
   .echarts-tooltip-dark .row .item .num{
     font-family: SourceHanSansCN-Medium;
