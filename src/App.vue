@@ -6,15 +6,16 @@
 
     </div>
 
+    <hn-map-vue></hn-map-vue>>
+    <!-- <div class="echarts-wrapper" ref="province_map" style="width: 400px;height: 400px;">
 
-    <div class="echarts-wrapper" ref="province_map" style="width: 400px;height: 400px;">
-
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
   import HelloWorld from './components/HelloWorld.vue'
+  import hnMapVue from './components/hnMap.vue';
   // import BMap from 'bmaplib'
   import * as echarts from "echarts"
   import {
@@ -24,11 +25,11 @@
   export default {
     name: 'app',
     components: {
-      HelloWorld
+      hnMapVue
     },
     mounted() {
       this.initMap()
-      this.initEcharts()
+      // this.initEcharts()
     },
     methods: {
       randomData() {
@@ -112,7 +113,19 @@
           name: '湘西土家族苗族自治州',
           value: this.randomData()
         }];
-
+        const areaColor = {
+                  type: 'linear',
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 1,
+                  colorStops: [{
+                      offset: 0, color: '#05FDA6' // 0% 处的颜色
+                  }, {
+                      offset: 1, color: '#0CFFD2' // 100% 处的颜色
+                  }],
+                  global: false // 缺省为 false
+                }
         const option = {
           tooltip: {
             show: false,
@@ -138,8 +151,8 @@
             itemStyle: {
               borderWidth: 2,
               borderColor: '#36b4bf',
-              areaColor: '#00EFFF',
-              color: '#00EFFF',
+              areaColor: areaColor,
+              color: areaColor
             },                
           },
           geo: {
@@ -160,8 +173,8 @@
               itemStyle: {
                 borderWidth: 2,
                 borderColor: '#36b4bf',
-                areaColor: '#00EFFF',
-                color: '#00EFFF',
+                areaColor: areaColor,
+                color: areaColor
               },                
             },
             select:{
@@ -172,8 +185,8 @@
               itemStyle: {
                 borderWidth: 2,
                 borderColor: '#36b4bf',
-                areaColor: '#00EFFF',
-                color: '#00EFFF',
+                areaColor: areaColor,
+                color: areaColor
               },        
             }
           },
@@ -185,7 +198,7 @@
             
             label: {
               show: true,
-              color: '#00EFFF',
+              color: '#00FFDB',
               position: ['50%', '50%'],
              overflow: 'break',
              width: 80
@@ -205,8 +218,8 @@
               itemStyle: {
                 borderWidth: 2,
                 borderColor: '#36b4bf',
-                areaColor: '#00EFFF',
-                color: '#00EFFF',
+                areaColor: areaColor,
+                color: areaColor
               },        
             },
             emphasis:{
@@ -217,8 +230,8 @@
               itemStyle: {
                 borderWidth: 2,
                 borderColor: '#36b4bf',
-                areaColor: '#00EFFF',
-                color: '#00EFFF',
+                areaColor: areaColor,
+                color: areaColor
               },                
             },
             data: data
