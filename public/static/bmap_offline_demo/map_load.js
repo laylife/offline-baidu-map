@@ -2,7 +2,7 @@
 
 // console.log(process.env.VITE_BASE_URL_MAP);
 var bmapcfg = {
-  'imgext': '.jpg',   //瓦片图的后缀 ------ 根据需要修改，一般是 .png .jpg
+  'imgext': '.png',   //瓦片图的后缀 ------ 根据需要修改，一般是 .png .jpg
   'tiles_dir': '/static/bmap_offline_demo/tiles',       //普通瓦片图的地址，为空默认在 offlinemap/tiles/ 目录
   // 'tiles_dir': import.meta.env.VITE_BASE_URL_MAP,       //普通瓦片图的地址，为空默认在 offlinemap/tiles/ 目录
   // 'tiles_dir': 'http://localhost',       //普通瓦片图的地址，为空默认在 offlinemap/tiles/ 目录

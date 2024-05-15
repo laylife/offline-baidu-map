@@ -1,0 +1,4 @@
+配置文件application.properties
+
+1、百度在线地图AK“baidu.ak”该参数必须配置，若无可以到“https://lbsyun.baidu.com/apiconsole/key#/home”创建配置
+2、其他配置参照描述
